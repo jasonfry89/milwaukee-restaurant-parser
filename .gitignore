@@ -1,6 +1,6 @@
 build
 dist
-milwaukee_mmsd_parser.egg-info
+milwaukee_restaraunt_parser.egg-info/
 .eggs
 __pycache__
 .idea
