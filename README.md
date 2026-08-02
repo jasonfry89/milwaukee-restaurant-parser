@@ -12,7 +12,7 @@ Gets Milwaukee restaurant grades
 
 ### Run
 
-`python mke_restaraunt_parser.py`
+`python mke_restaurant_parser.py`
 
 ```
 [MilwaukeeFacilitySearch(facility_id='4202335458016E20862581AA0054068E', name="WY'EAST PIZZA", address='5601 W VLIET ST', sub_type='Retail Food - Serving Meals')]
