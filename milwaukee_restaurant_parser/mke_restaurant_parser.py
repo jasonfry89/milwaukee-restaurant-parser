@@ -61,7 +61,7 @@ async def search_facilities(search: str) -> List[MilwaukeeFacilitySearch]:
             response.raise_for_status()
             search_results = await response.json()
 
-    if not search_results or search_results[0] is None or search_results[0]["Error"] is not None:
+    if not search_results or search_results[0] is None or search_results[0].get('Error') is not None:
         raise NoResultsError
 
     return [MilwaukeeFacilitySearch(facility_id=result['unid'], name=result['name'], address=result.get('Address'), sub_type=result.get('SubType')) for result in search_results]
