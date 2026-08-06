@@ -1,1 +1,1 @@
-from milwaukee_restaurant_parser.mke_restaurant_parser import get_facility, search_facilities, MilwaukeeFacilitySearch, MilwaukeeFacilityInformation
+from milwaukee_restaurant_parser.mke_restaurant_parser import get_facility, search_facilities, MilwaukeeFacilitySearch, MilwaukeeFacilityInformation, NoResultsError
