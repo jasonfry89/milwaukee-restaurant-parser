@@ -26,12 +26,12 @@ class MilwaukeeFacilitySearch:
     sub_type: str | None
 
 
-BASE_URL = "https://healthinspection.healthspace.com/clients/wi/Milwaukee/Web.nsf/"
+BASE_URL = "http://healthinspection.healthspace.com/clients/wi/Milwaukee/Web.nsf/"
 TIMEOUT = aiohttp.ClientTimeout(total=30)
 
 
 async def get_facility(facility_id: str) -> MilwaukeeFacilityInformation:
-    async with aiohttp.ClientSession(base_url=BASE_URL, timeout=TIMEOUT, connector=aiohttp.TCPConnector(ssl=False)) as session:
+    async with aiohttp.ClientSession(base_url=BASE_URL, timeout=TIMEOUT) as session:
         async with session.get(
                 f"formFacility.xsp?id={facility_id}&module=Food") as response:
             response.raise_for_status()
@@ -55,7 +55,7 @@ async def get_facility(facility_id: str) -> MilwaukeeFacilityInformation:
     )
 
 async def search_facilities(search: str) -> List[MilwaukeeFacilitySearch]:
-    async with aiohttp.ClientSession(base_url=BASE_URL, timeout=TIMEOUT, connector=aiohttp.TCPConnector(ssl=False)) as session:
+    async with aiohttp.ClientSession(base_url=BASE_URL, timeout=TIMEOUT) as session:
         async with session.get(
                 f"restQuery.xsp/searchFacilities?query={search}&maxcount=50&module=Food&viewname=XPagesFacilitiesByType&source=util_searchEstablishments.cc") as response:
             response.raise_for_status()
